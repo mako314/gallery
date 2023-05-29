@@ -186,3 +186,4 @@ You can consult the [json-server docs][] for more information.
 [event-listeners]: https://developer.mozilla.org/en-US/docs/Web/Events
 [APIs]:  https://mixedanalytics.com/blog/list-actually-free-open-no-auth-needed-apis/
 # website
+# gallery
