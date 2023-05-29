@@ -1,0 +1,39 @@
+{
+    "heroes": [
+    
+    {
+    "id": 1,
+    "name": "Black Lightning",
+    "image": "https://i.pinimg.com/originals/3e/9e/a6/3e9ea63299b882f68bbe9a94d53e34e3.jpg",
+    "likes": 30,
+    "my favorite": false
+    },
+    
+    {
+    "id": 2,    
+    "name": "Green Lantern",
+    "image": "https://vignette.wikia.nocookie.net/deathbattlefanon/images/2/2a/37b22e7ed309d7a87461929ec6e382df.jpg/revision/latest?cb=20161024020602",
+    "likes": 76,
+    "my favorite": true
+    },
+    
+    {
+    "id": 3,
+    "name": "Vixen",
+    "image": "https://comicvine.gamespot.com/a/uploads/original/4/46646/7595643-2647490512-vixen.jpg",
+    "likes": 91,
+    "my favorite": false
+    },
+    
+    {
+    "id": 4,
+    "name": "Martian Manhunter",
+    "image": "https://th.bing.com/th/id/OIP.qncFVRoXl0l_yxt5r1TdCQHaEK?pid=ImgDet&rs=1",
+    "likes": 31,
+    "my favorite": true
+    }
+    ]
+    }
+    
+    
+    
