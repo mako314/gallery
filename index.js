@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', () => console.log('Connection Established!');
+
 //alert('test')
 
 const btn = document.querySelector('.btn');
@@ -39,13 +41,11 @@ let newData = {
       };
  console.log(newData);
   
-    fetch('http://localhost:3000/heroes', {
+    fetch('http://localhost:3000/heroes'), {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
+    headers: {'Content-Type': 'application/json'},
     body : JSON.stringify(newData) // Convert the data to JSON string
-  })
+  }
     .then(response => response.json())
     .then(data => {
       console.log('Data added/updated successfully:', data);
@@ -56,7 +56,7 @@ let newData = {
       //Will let me know that I have to fix something!
     })
     
-    const preparedData = data.forEach(convertToHTML) //ReferenceError: Data is not defined!!!
+    //const preparedData = data.forEach(convertToHTML) //ReferenceError: Data is not defined!!!
 
     function convertToHTML(hero){
     const p = document.createElement('p')
@@ -79,37 +79,12 @@ let jsonData = {};
 const addButton = document.getElementById('addDataButton');
 
 // Add an event listener to the button click event
-addButton.addEventListener('click', function() {
+//addButton.addEventListener('click', function() {
   // Call a function to add data to the JSON object
-  addDataToJSON();
-});
-
-// Function to add data to the JSON object
-function addDataToJSON() {
-  // Prompt the user to enter data
-  const key = prompt('Enter a key:');
-  const value = prompt('Enter a value:');
-
-  // Check if key and value are non-empty
-  if (key && value) {
-    // Add the data to the JSON object
-    jsonData[key] = value;
-
-    // Log the updated JSON object to the console
-    console.log(jsonData);
-  } else {
-    // Display an error message if either key or value is empty
-    alert('Please enter valid information!');
-  }
-
-  // Add the data to the JSON object
-  jsonData[key] = value;
-
-  // Log the updated JSON object to the console
-  console.log(jsonData);
-}
+  //addDataToJSON();
+//});
 console.log(btn);
-console.log(outpost)
+console.log(outpost);
 
 const container = document.getElementById("image");
 
@@ -119,4 +94,33 @@ jsonData.images.forEach(imageLink => {
   container.appendChild(imgElement);
 });
 
+// Add an event listener to the submit button
+addButton.addEventListener('click', function(event) {
+  // Prevent the default form submission behavior
+  event.preventDefault();
+  addDataToJSON();
+// Check if the JSON object exists in localStorage
+  if (localStorage.getItem('myJSON') === null) {
+  // If it doesn't exist, create a new JSON object and store it in localStorage
+  const myJSON = {
+    heroes: []
+  };
+  localStorage.setItem('myJSON', JSON.stringify(myJSON));
+} else {
+  // If it exists, retrieve the JSON object from localStorage
+  const myJSON = JSON.parse(localStorage.getItem('myJSON'));
+}
+function addDataToJSON(data) {
+  // Check if the data already exists in the JSON object
+  if (!myJSON.data.includes(data)) {
+    // If it doesn't exist, add the data to the JSON object
+    myJSON.data.push(data);
+    
+    // Update the JSON object in localStorage
+    localStorage.setItem('myJSON', JSON.stringify(myJSON));
+  }
+}
 
+// Usage example:
+addDataToJSON('New data');
+});
