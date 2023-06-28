@@ -17,6 +17,10 @@ fetch(url, {
    .then(response => response.json())
    .then(response => console.log(response))
 
+   function Error(error){
+    if (error.message === "")
+   }
+
 //Trying to figure out how to display my json on the DOM
 const renderHeroList = heroes => {
     const li = document.createElement('li')
