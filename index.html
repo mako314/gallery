@@ -14,7 +14,10 @@
     <link rel="stylesheet" href="style.css">
     
     <h1>DuMark's Gallery of Heroes</h1>
-<form action="http://localhost:3000/heroes">
+
+    <div id="heroes"></div>
+    
+    <form action="http://localhost:3000/heroes">
     <label for="heroName">Name:</label>
     <input type="text" id="name" name="'heroName">
     <br>
@@ -23,9 +26,15 @@
     <br>
     <button class= "btn">Add to the Gallery!</button>
     <br>
-    <button class="btn1">Like</button> 
-    <br>
     <button class="btn2">Clear</button> 
+    <br>
+    
+
+    <h2>The Heroes:</h2>
+    <div id="heroes-container"></div>
+    <button class="btn3">Show Gallery!</button>
+    </div>
+    
 
 
         
