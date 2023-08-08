@@ -2,7 +2,10 @@
 //this will show if I have connected my files together correctly
 //var url = 'http://localhost:3000/heroes';
 
-const myGallery = document.querySelector('#heroes');
+const myGallery = document.createElement("heroes-container");
+const newDiv = document.createElement("div");
+const para = document.createElement("p");
+
 console.log(myGallery)
 
 fetch ('http://localhost:3000/heroes' , {
@@ -12,13 +15,15 @@ fetch ('http://localhost:3000/heroes' , {
 })
 .then(response => response.json())
 .then(heroes => {
-    for (let i = 0; i <heroes.length; i++){
+    for (let i = 0; i < heroes.length; i++){
     let currentHeroes = heroes[i];  
     console.log(currentHeroes)
 
-    let imgPlaceHolder = document.createElement('heroes.img')
+    let imgPlaceHolder = document.createElement("heroLink")
     imgPlaceHolder.setAttribute("id",[i])
     imgPlaceHolder.src = currentHeroes.image
+    imgPlaceHolder.setAttribute("src", currentHeroes.image)
+    newDiv.appendChild(heroes)
     console.log(imgPlaceHolder)
     myGallery.appendChild(imgPlaceHolder)
 

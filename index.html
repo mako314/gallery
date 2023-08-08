@@ -17,30 +17,54 @@
 
     <div id="heroes"></div>
     
-    <form action="http://localhost:3000/heroes">
-    <label for="heroName">Name:</label>
-    <input type="text" id="name" name="'heroName">
+    <form class="form">
+    <input name="Hero's Name" type = "text" placeholder="Hero's Name?"
     <br>
-    <label for="image">Image Link:</label>
-    <input type="url" id="image" name="heroLink">
+    <input name="Image Link" type="url" placeholder="Image Link?"
     <br>
-    <button class= "btn">Add to the Gallery!</button>
+    <input name="Fave?" type="checkbox">
+    <br>
+    <button type="submit" class= "btn">Add to the Gallery!</button>
     <br>
     <button class="btn2">Clear</button> 
     <br>
+
+    <script>
+         const formE1 = document.querySelector('.form');
+
+         formE1.addEventListener('submit', event => {
+            event.preventDefault();
+            //prevents it from doing what it regularly does.
+
+            const formData = new FormData(formE1);
+            const data = new URLSearchParams(formData); 
+            
+
+    fetch ('http://localhost:3000/heroes' , {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: data
+    })
+    .then(response => response.json())
+    .then(heroes => console.log(heroes))
+    .catch(error => console.log(error))
+         });
+    
     
 
-    <h2>The Heroes:</h2>
-    <div id="heroes-container"></div>
-    <button class="btn3">Show Gallery!</button>
-    </div>
+         <!--//<h2>The Heroes:</h2>
+    <!--//<div id="heroes-container"></div>
+    <!--//<button class="btn3">Show Gallery!</button>
+    <!--///div>
     
 
 
         
 
     <!-- //<script src="script.js"></script> -->
-
+</script>
 </form>    
 </body>
 </html>
