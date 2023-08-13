@@ -23,9 +23,9 @@ fetch ('http://localhost:3000/heroes' , {
     imgPlaceHolder.setAttribute("id",[i])
     imgPlaceHolder.src = currentHeroes.image
     imgPlaceHolder.setAttribute("src", currentHeroes.image)
-    newDiv.appendChild(heroes)
+    //newDiv.appendChild(heroes)
     console.log(imgPlaceHolder)
-    myGallery.appendChild(imgPlaceHolder)
+    //myGallery.appendChild(imgPlaceHolder)
 
 
 

@@ -30,27 +30,37 @@
     <br>
 
     <script>
-         const formE1 = document.querySelector('.form');
+         const listHeroes = document.querySelector('ul');
 
-         formE1.addEventListener('submit', event => {
-            event.preventDefault();
+         //listHeroes.addEventListener('submit', event => {
+           // event.preventDefault();
             //prevents it from doing what it regularly does.
 
-            const formData = new FormData(formE1);
-            const data = new URLSearchParams(formData); 
+            //const formData = new FormData(formE1);
+            //const data = new URLSearchParams(formData); 
             
 
-    fetch ('http://localhost:3000/heroes' , {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: data
-    })
-    .then(response => response.json())
-    .then(heroes => console.log(heroes))
-    .catch(error => console.log(error))
-         });
+    fetch ('http://localhost:3000/heroes') 
+        .then(res => res.json())
+        .then(data => {
+            heroes.forEach(post => { //why is this causing issues?
+                listHeroes.insertAdjacentElement('beforeend' , `<li>${post.name}</li>`)
+            })
+
+        })
+             
+         
+
+        //method: 'POST',
+        //headers: {
+         //   'Content-Type': 'application/x-www-form-urlencoded',
+    //},
+    //body: data
+    //})
+    //.then(response => response.json())
+    //.then(heroes => console.log(heroes))
+    //.catch(error => console.log(error))
+     //    });
     
     
 
