@@ -30,7 +30,7 @@
     <br>
 
     <script>
-         const listHeroes = document.querySelector('ul');
+         //const listHeroes = document.querySelector('ul');
 
          //listHeroes.addEventListener('submit', event => {
            // event.preventDefault();
@@ -40,14 +40,14 @@
             //const data = new URLSearchParams(formData); 
             
 
-    fetch ('http://localhost:3000/heroes') 
-        .then(res => res.json())
-        .then(data => {
-            heroes.forEach(post => { //why is this causing issues?
-                listHeroes.insertAdjacentElement('beforeend' , `<li>${post.name}</li>`)
-            })
+    //fetch ('http://localhost:3000/heroes') 
+      //  .then(res => res.json())
+        //.then(data => {
+          //  heroes.forEach(post => { //why is this causing issues?
+            //    listHeroes.insertAdjacentElement('beforeend' , `<li>${post.name}</li>`)
+            //})
 
-        })
+        //})
              
          
 
@@ -64,10 +64,10 @@
     
     
 
-         <!--//<h2>The Heroes:</h2>
-    <!--//<div id="heroes-container"></div>
-    <!--//<button class="btn3">Show Gallery!</button>
-    <!--///div>
+    //<h2>The Heroes:</h2>;
+    //<div id="heroes-container"> </div>;
+    //<button class="btn3">Show Gallery!</button>
+
     
 
 

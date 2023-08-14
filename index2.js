@@ -1,35 +1,65 @@
+const apiEndpoint = "http://localhost:3000/heroes";
+const display = document.querySelector("#heroes-data");
+
+const getData = async () => {
+  const res = await fetch(apiEndpoint);
+  const data = await res.json();
+  return data
+}
+
+const displayHeroes = async () => {
+  const payload = await getData();
+  
+  let dataDisplay = payload.map((object) => {
+    const {id, name, image} = object;
+
+    return `
+    <div class='container'>
+    <p>ID: ${id}</p>
+    <p>Name: ${name}</p>
+    <p>Image: ${image} </p>
+    </div>
+    `
+  }).join("");
+
+  displayHeroes.innerHTML = dataDisplay;
+}
+displayHeroes();
+
+
+
 //document.addEventListener("DOMContentLoaded", () => fetchData);
 //this will show if I have connected my files together correctly
 //var url = 'http://localhost:3000/heroes';
 
-const myGallery = document.createElement("heroes-container");
-const newDiv = document.createElement("div");
-const para = document.createElement("p");
+//const myGallery = document.createElement("heroes-container");
+//const newDiv = document.createElement("div");
+//const para = document.createElement("p");
 
-console.log(myGallery)
+//console.log(myGallery)
 
-fetch ('http://localhost:3000/heroes' , {
-    method: 'GET',
-    headers: {'Accept' : 'application/json',
-},
-})
-.then(response => response.json())
-.then(heroes => {
-    for (let i = 0; i < heroes.length; i++){
-    let currentHeroes = heroes[i];  
-    console.log(currentHeroes)
+//fetch ('http://localhost:3000/heroes' , {
+  //  method: 'GET',
+    //headers: {'Accept' : 'application/json',
+//},
+//})
+//.then(response => response.json())
+//.then(heroes => {
+  //  for (let i = 0; i < heroes.length; i++){
+    //let currentHeroes = heroes[i];  
+    //console.log(currentHeroes)
 
-    let imgPlaceHolder = document.createElement("heroLink")
-    imgPlaceHolder.setAttribute("id",[i])
-    imgPlaceHolder.src = currentHeroes.image
-    imgPlaceHolder.setAttribute("src", currentHeroes.image)
+    //let imgPlaceHolder = document.createElement("heroLink")
+    //imgPlaceHolder.setAttribute("id",[i])
+    //imgPlaceHolder.src = currentHeroes.image
+    //imgPlaceHolder.setAttribute("src", currentHeroes.image)
     //newDiv.appendChild(heroes)
-    console.log(imgPlaceHolder)
+    //console.log(imgPlaceHolder)
     //myGallery.appendChild(imgPlaceHolder)
 
 
 
-}})
+//}})
 
 
 
